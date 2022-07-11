@@ -4,7 +4,7 @@
 // import mongoose from 'mongoose'
 const mongoose = require('mongoose');
 
-const MONGO_URL = 'mongodb+srv://SBagizad:Sb10203040@cluster0.mjpur.mongodb.net/test1?retryWrites=true&w=majority'
+const MONGO_URL = 'mongodb+srv://SBagizad:Sb10203040@cluster0.mjpur.mongodb.net/test2?retryWrites=true&w=majority'
 
 exports.connect = async () => {
     try {

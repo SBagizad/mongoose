@@ -3,9 +3,6 @@ const express = require("express");
 const auth = require('../middlewere/auth');
 const router = express.Router();
 
-
-
-
 router.all("/test", auth, (req, res) => {
     res.send("test")
 })
@@ -32,14 +29,18 @@ router.get("/:id", async (req, res) => {
 })
 
 router.post('/addUser', async (req, res) => {
-    const { firstName, email, password } = req.body;
+    const userFields = req.body
+    console.log(userFields);
+    // const userFields= { firstName, lastName, email, password, phone, createDate, lastLog, isActive, gender, playlist } = req.body;
     try {
-        const userFields = ({ firstName, lastName, email, })
+        // const userFields = ({ firstName, lastName, email, password, phone, createDate, lastLog, isActive, gender, playlist })
+
+
         const user = await userLogic.createUser(userFields)
         res.send(user)
     }
     catch (error) {
-        res.status(500).send({ message: "sorry, something went wrong" })
+        res.status(error.code || 500).send({ message: error.message || "sorry, something went wrong" })
     }
 })
 router.post("/login", async (req, res) => {

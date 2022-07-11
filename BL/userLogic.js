@@ -16,7 +16,8 @@ exports.getAllUsers = async () => {
 
 exports.createUser = async (userFields) => {
     const eUser = await userController.read({ email: userFields.email })
-    if (eUser.length) throw ({})
+    console.log("abc");
+    if (eUser.length) throw ({ code: 400, message: "this email is already exist" })
     return userController.create(userFields)
 }
 exports.register = async (userFields) => {

@@ -1,11 +1,12 @@
-require('../db').connect()
+require('../db').connect() //?
 
 const mongoose = require('mongoose');
+// const { PLAYLIST_MODEL_NAME } = require('./playlist');
 
 const userSchema = new mongoose.Schema({
     firstName: {
         type: String,
-        required: true
+        // required: true
     },
     lastName: {
         type: String
@@ -32,25 +33,24 @@ const userSchema = new mongoose.Schema({
     isActive: {
         type: Boolean, default: true
     },
-    address: {
-        street: { type: String },
-        homeNumber: { type: Number },
-        city: { type: String },
-    },
     gender: {
         type: String,
         enum: ['male', 'female'],
         // required: true
-    },
-    token: {
-        type: String,
-        // required: true,
-        select: false
-    },
-
-
-
+    }
+    //,
+    // // token: {
+    // //     type: String,
+    // //     // required: true,
+    // //     select: false
+    //}
+    //,
+    // pl: [{
+    //     type: mongoose.SchemaTypes.ObjectId,
+    //     ref: 'playlist'
+    // }
+    // ]
 })
-const userModel = mongoose.model('user', userSchema);
+// const userModel = mongoose.model('user', userSchema);
 
-module.exports = { userModel }
+module.exports = mongoose.model('user', userSchema);

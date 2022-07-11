@@ -2,12 +2,10 @@ const express = require("express")
 const router = express.Router();
 
 const userRoute = require("./userRoute");
-const itemRoute = require("./itemRoute");
-const orderRoute = require("./orderRoute");
+const playlistRoute = require("./playlistRoute");
 
 
 router.use("/users", userRoute);
-router.use("/items", itemRoute);
-router.use("/orders", orderRoute)
+router.use("/playlist", playlistRoute);
 
 module.exports = router;

@@ -1,27 +1,26 @@
-require('../db').connect()
+//require('../db').connect()
 
 
-const { itemModel } = require('../models/item')
+const { playlistModel } = require('../models/item')
 
 
 async function create(data) {
-    return await itemModel.create(data)
+    return await playlistModel.create(data)
 
-    // const res = await itemModel.create(data)
-    // console.log(res);
 }
+
 async function read(filter, proj) {
-    return await itemModel.find(filter, proj);
+    return await playlistModel.find(filter, proj);
     // const res = await itemModel.find(filter)
     // console.log(res)
 }
 
 async function readOne(filter, proj) {
-    return await itemModel.findOne(filter, proj);
+    return await playlistModel.findOne(filter, proj);
 }
 
 async function update(filter, newData) {
-    return await itemModel.updateOne(filter, newData)
+    return await playlistModel.updateOne(filter, newData)
     // const res = await itemModel.updateOne(filter, newData)
     // console.log(res);
 }
